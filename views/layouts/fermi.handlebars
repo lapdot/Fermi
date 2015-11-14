@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>费米科学</title>
+
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <!--style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+    </style-->
+    <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-theme.min.css">
+    <!--link rel="stylesheet" href="/css/main.css"-->
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/normalize.css" />
+    <!--link rel="stylesheet" href="stylesheets/page.css" /-->
+    {{{_sections.css}}}
+    <script src="/vendor/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+	<div class="inner-navigation">
+    <nav class="top-nav">
+      <div class="container">
+        <a class="navbar-left navbar-link" href="/"><img src="/images/logo3.jpg" alt="Fermi Logo" style="height:160px; width:160px"></a>
+        {{#if account}}
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text">你好,&nbsp&nbsp{{account.realname}}</p></li>
+            <!--li><a href="/carts">购物车</a></li-->
+            <li><a href="/account">我的帐号</a></li>
+            <li><a href="/logout">退出</a></li>
+          </ul>
+        {{else}}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/signup">注册</a></li>
+            <li><a href="/login">登录</a></li>
+          </ul>
+        {{/if}}
+        <a class="btn btn-primary navbar-btn navbar-right" href="/apply" style="clear: right">
+          <h4>报 名</h4>
+        </a>
+      </div>
+    </nav>
+    <!--nav class="navbar top-nav">
+      <div class="container">
+        <ul class="nav navbar-nav navbar-left">
+        </ul>
+        {{#if account}}
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text">你好,&nbsp&nbsp{{account.realname}}</p></li>
+            <li><a href="/account">我的帐号</a></li>
+            <li><a href="/logout">退出</a></li>
+          </ul>
+        {{else}}
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/signup">注册</a></li>
+            <li><a href="/login">登录</a></li>
+          </ul>
+        {{/if}}
+      </div>
+    </nav>
+    <nav class="navbar logo-nav hidden-xs">
+      <div class="container">
+          <a class="navbar-left navbar-link" href="/"><img src="/images/logo3.jpg" alt="Fermi Logo" style="height:120px; width:120px"></a>
+        <a class="btn btn-primary navbar-btn navbar-right" href="/apply">
+          <h4>报 名</h4>
+        </a>
+      </div>
+    </nav-->
+		<nav class="school-subnav hidden-xs">
+			<div class="container">
+				<ul class="nav nav-tabs nav-justified">
+					<li><a href="/">主 页</a></li>
+					<li><a href="/courses">课 程</a></li>
+					<li><a href="/faculty">教 师</a></li>
+					<li><a href="/diy">学 生</a></li>
+					<li><a href="/news">活 动</a></li>
+          <li><a href="/videos">视 频</a></li>
+				</ul>
+			</div>
+		</nav>
+		<nav class="mobile-nav navbar navbar-default visible-xs-block">
+        	<div class="container">
+          		<div class="navbar-header">
+            		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              			<span class="icon-bar"></span>
+              			<span class="icon-bar"></span>
+              			<span class="icon-bar"></span>
+            		</button>
+            		<a class="navbar-brand" href="/">费米科学</a>
+          		</div>
+          		<div id="navbar" class="navbar-collapse collapse">
+           			<ul class="nav navbar-nav">
+              			<li><a href="/">主页</a></li>
+
+						<li><a href="/courses">课程</a></li>
+						<li><a href="/faculty">教师</a></li>
+						<li><a href="/diy">学生</a></li>
+						<li><a href="/news">活动</a></li>
+            <li><a href="/videos">Crazy Fermi</a></li>
+						<li><a href="/apply">报名</a></li>
+            		</ul>
+            		<!--ul class="nav navbar-nav navbar-right">
+              			<li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
+              			<li><a href="../navbar-static-top/">Static top</a></li>
+              			<li><a href="../navbar-fixed-top/">Fixed top</a></li>
+            		</ul-->
+          		</div>
+        	</div>
+      	</nav>	
+		{{{_sections.subnav}}}
+	</div>
+
+
+	<div class="out-container">
+		<div class="container content-container">
+        {{{body}}}
+		</div>
+	</div>
+
+	<footer class="middle-footer">
+		<div class="container">
+			<ul class="nav nav-tabs">
+				<li><a href="/courses">课程</a></li>
+				<!--li><a href="/about">关于我们</a></li-->
+			</ul>
+		</div>
+	</footer>
+	<!--footer class="navbar bottom-footer">
+		<div class="container">
+			<div>
+				<p class="navbar-text">Copyright © 2015 FermiEdu<sup>TM</sup> All Rights Reserved.</p>
+				<ul class="nav navbar-nav">
+					<li><a href="/about/agreement">用户协议</a></li>
+					<li><a href="/about/privacy">隐私条款</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer-->     
+
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/vendor/js/jquery-1.11.3.min.js"><\/script>')</script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+	{{{_sections.jquery}}}
+	<!--script src="/js/main.js"></script-->
+</body>
+</html>

@@ -1,0 +1,29 @@
+{{#if dir.overview}}
+  {{> subnav_overview}}
+{{/if}}
+{{#if dir.faculty}}
+  {{> subnav_faculty}}
+{{/if}}
+{{#if dir.diy}}
+  {{> subnav_diy}}
+{{/if}}
+{{#if dir.news}}
+  {{> subnav_news}}
+{{/if}}
+
+<div class='row'>
+  <div class='col-md-12'>
+    <div class="context-content">
+      <div class="inner-content">
+        <div>
+          <h3>{{passage.title}}</h3>
+          {{#if teacher}}
+            <a href="/passages-edit/{{passage.id}}">编辑<a>
+          {{/if}}
+          <br />
+          {{{passage.context}}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

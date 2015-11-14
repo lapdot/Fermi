@@ -1,0 +1,130 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <p></p>
+    {{#if message}}
+      <p> {{message}} </p>
+    {{/if}}
+    <form action="/account" method="post" class="form-horizontal" id="usersEditForm">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          学生信息
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="inputRealName" class="col-sm-2 control-label">姓名</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputRealName" name="realname" value="{{account.realname}}">
+            </div>
+            <div class="col-sm-6">
+              <p class="info" id="infoRealName"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputGender" class="col-sm-2 control-label">性别</label>
+            <div class="col-sm-2">
+              <select class="form-control" id="inputGender" name="gender" data="{{account.gender}}">
+                <option value=""></option>          
+                <option value="Male">男</option>
+                <option value="Female">女</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputSchool" class="col-sm-2 control-label">学校</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputSchool" name="school" placeholder="School" value="{{account.school}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputGrade" class="col-sm-2 control-label">年级</label>
+            <div class="col-sm-4">
+              <select class="form-control" id="inputGrade" name="grade" data="{{account.grade}}">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          家庭信息
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="inputPhone2" class="col-sm-2 control-label">备用联系电话</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputPhone2" name="phone2" placeholder="Phone2" value="{{account.phone2}}">
+            </div>
+            <div class="col-sm-4">
+              <p class="info" id="infoPhone2"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+          <input name="_method" type="hidden" value="put">
+          <button type="submit" class="btn btn-default" id="signupSubmit">保存更改</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{#section 'jquery'}}
+<script>
+  function chooseOption(selector) {
+    var p = $(selector);
+    if (p.prop('selectedIndex') !== 0) {
+      return;
+    }
+    var str = p.attr('data');
+    var i,j;
+    for (i=0,j=p.get(0).options.length;i<j;i++){
+      if ($(p.get(0).options[i]).attr('value') === str) {
+        p.prop('selectedIndex', i);
+      }
+    }
+  };
+  function checkRealName() {
+    var realName = $('#inputRealName').val();
+    var errRealName;
+    if (realName === '') {
+      errRealName = '姓名不能为空';
+    } else {
+      errRealName = '';
+    }
+    return errRealName;
+  };
+  $(document).ready(function() {
+    chooseOption('#inputGender');
+    chooseOption('#inputGrade');
+    $('#inputRealName').on('blur', function() {
+      $('#infoRealName').html(checkRealName());
+    });
+    $('#inputRealName').on('focus',function() {
+      $('#infoRealName').html('');
+    });
+    $('#usersEditForm').on('submit', function (event) {
+      $('#inputRealName').trigger('blur');
+      if (checkRealName() === '') {
+        return ;
+      } else {
+        event.preventDefault();
+      }
+    });
+    if ($('#inputRealName').val() !== '') {
+      $('#inputRealName').trigger('blur');
+    }
+  });
+</script>
+{{/section}}

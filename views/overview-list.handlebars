@@ -1,0 +1,21 @@
+{{> subnav_overview}}
+
+<div class="row">
+{{#each passages}}
+  <div class='col-md-6'>
+    <div class="promo-content">
+      <img src="/passages/{{this.id}}/{{this.coverName}}" alt="理念">
+      <div class="inner-content">
+        <div>
+          <h2>理念</h2>
+          <h3>{{this.title}}</h3>
+        </div>
+        <div>
+          <p>{{this.description}}</p>
+        </div>
+      </div>
+      <a href="/overview/{{this.alias}}" class="cta-overlay">{{this.title}}</a>
+    </div>
+  </div>
+{{/each}}
+</div>

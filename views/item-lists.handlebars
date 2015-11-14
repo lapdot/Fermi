@@ -1,0 +1,14 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <p>{{message}}</p>
+    <table class="table table-striped">
+      {{#each items}}
+      <tr>
+        <td><a href="/items/{{this.id}}">{{this.name}}</a></td>
+        <td><p>{{this.teacher_description}}</p></td>
+        <td><p>{{this.time_description}}</p></td>
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+</div>

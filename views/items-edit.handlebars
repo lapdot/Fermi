@@ -1,0 +1,79 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <p></p>
+    <form action="/items/{{item.id}}" method="post" class="form-horizontal">
+      <div class="form-group">
+        <label for="inputName" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputName" name="name" value="{{item.name}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputSemester" class="col-sm-2 control-label">Semester</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputSemester" name="semester" value="{{item.semester}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputStartDate" class="col-sm-2 control-label">Start Date</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputStartDate" name="start_date" value="{{item.start_date}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputTime" class="col-sm-2 control-label">Time</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputTime" name="time_description" value="{{item.time_description}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPlace" class="col-sm-2 control-label">Place</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputPlace" name="place" value="{{item.place}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputTeacher" class="col-sm-2 control-label">Teacher</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputTeacher" name="teacher_description" value="{{item.teacher_description}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputTotalTimes" class="col-sm-2 control-label">Total Times</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputTotalTimes" name="total_times" value="{{item.total_times}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputTotalPrice" class="col-sm-2 control-label">Total Price</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputTotalPrice" name="total_price" value="{{item.total_price}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputRemark" class="col-sm-2 control-label">Remark</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputRemark" name="remark" value="{{item.remark}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAmount" class="col-sm-2 control-label">Amount</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputAmount" name="amount" placeholder="Enter Course's Max Amount" value="{{item.amount}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputOverdue" class="col-sm-2 control-label">Overdue</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="inputOverdue" name="overdue" value="{{item.overdue}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+          <input name="_method" type="hidden" value="put">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

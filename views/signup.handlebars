@@ -1,0 +1,180 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <p></p>
+    {{#if message}}
+      <p> {{message}} </p>
+    {{/if}}
+    <form action="/signup" method="post" class="form-horizontal" id="signupForm">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          帐号信息
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="inputPhone" class="col-sm-2 control-label">手机号码</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputPhone" name="phone">
+            </div>
+            <div class="col-sm-6">
+              <p class="info" id="infoPhone"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPwd" class="col-sm-2 control-label">请输入密码</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" id="inputPwd" name="password">
+            </div>
+            <div class="col-sm-6">
+              <p class="info" id="infoPwd"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPwd2" class="col-sm-2 control-label">再次输入</label>
+            <div class="col-sm-4">
+              <input type="password" class="form-control" id="inputPwd2" name="password2">
+            </div>
+            <div class="col-sm-6">
+              <p class="info" id="infoPwd2"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          学生信息
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="inputRealName" class="col-sm-2 control-label">姓名</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="inputRealName" name="realname">
+            </div>
+            <div class="col-sm-6">
+              <p class="info" id="infoRealName"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+          {{#if prevurl}}
+            <input type="hidden" name="prevurl" value="{{prevurl}}">
+          {{/if}}
+          <button type="submit" class="btn btn-default" id="signupSubmit" >注册</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{#section 'jquery'}}
+<script>
+  function checkPwd() {
+    var pwd = $('#inputPwd').val();
+    var errPwd;
+    if (pwd.length < 1) {
+      errPwd = '密码不能为空';
+    } else if (pwd.length < 6) {
+      errPwd = '密码太短，需要在6-20位之间';
+    } else if (pwd.length > 20) {
+      errPwd = '密码太长，需要在6-20位之间';
+    } else {
+      errPwd = '';
+    }
+    return errPwd;
+  };
+  function checkPwd2() {
+    var pwd = $('#inputPwd').val();
+    var pwd2 = $('#inputPwd2').val();
+    var errPwd2;
+    if (pwd !== pwd2) {
+      errPwd2 = '两次输入的密码不同';
+    } else {
+      errPwd2 = '';
+    }
+    return errPwd2;
+  };
+  function checkRealName() {
+    var realName = $('#inputRealName').val();
+    var errRealName;
+    if (realName === '') {
+      errRealName = '姓名不能为空';
+    } else {
+      errRealName = '';
+    }
+    return errRealName;
+  };
+  $(document).ready(function() {
+    var errPhone = '';
+    $('#inputPhone').on('blur', function() {
+      phone = $(this).val();
+      if (phone === '') {
+        errPhone = '手机号码不能为空';
+        $('#infoPhone').html(errPhone);
+      } else {
+        $.ajax({
+          url: '/api/check-phone-existed',
+          type: 'POST',
+          data: { phone: phone },
+          success: function (data) {
+            if (data.success) {
+              errPhone = '此号码已经被注册';
+            } else {
+              errPhone = '';
+            }
+            $('#infoPhone').html(errPhone);
+          }
+        })
+      }
+    });
+    $('#inputPhone').on('focus', function() {
+      $('#infoPhone').html('')
+    });
+    $('#inputPhone').on('change', function() {
+      errPhone = '';
+    });
+    $('#inputPwd').on('blur', function() {
+      $('#infoPwd').html(checkPwd());
+    });
+    $('#inputPwd').on('focus', function() {
+      $('#infoPwd').html('密码长度需要在6-20位之间');
+    });
+    $('#inputPwd2').on('blur', function() {
+      $('#infoPwd2').html(checkPwd2());
+    });
+    $('#inputPwd').on('focus', function() {
+      $('#infoPwd2').html('');
+    });
+    $('#inputRealName').on('blur', function() {
+      $('#infoRealName').html(checkRealName());
+    });
+    $('#inputRealName').on('focus',function() {
+      $('#infoRealName').html('');
+    });
+    $('#signupForm').on('submit', function (event) {
+      $('#inputPhone').trigger('blur');
+      $('#inputPwd').trigger('blur');
+      $('#inputPwd2').trigger('blur');
+      $('#inputRealName').trigger('blur');
+      if (errPhone === '' && checkPwd() === '' && checkPwd2() === '' && checkRealName() === '') {
+        return ;
+      } else {
+        event.preventDefault();
+      }
+    });
+    if ($('#inputPhone').val() !== '') {
+      $('#inputPhone').trigger('blur');
+    }
+    if ($('#inputPwd').val() !== '') {
+      $('#inputPwd').trigger('blur');
+    }
+    if ($('#inputPwd2').val() !== '') {
+      $('#inputPwd2').trigger('blur');
+    }
+    if ($('#inputRealName').val() !== '') {
+      $('#inputRealName').trigger('blur');
+    }
+    
+  })
+</script>
+{{/section}}

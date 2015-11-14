@@ -1,0 +1,96 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <p></p>
+    {{#if message}}
+    <p> {{message}} </p>
+    {{/if}}
+    <form action="/passages{{#if passage}}-edit/{{passage.id}}{{/if}}" enctype="multipart/form-data" method="post">
+      <div class="form-group">
+        <label for="inputTitle">标题</label>
+        <div class="col-sm-12">
+          <input type="text" class="form-control" id="inputTitle" name="title" value="{{#if passage}}{{passage.title}}{{/if}}"></input>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputDescription">描述</label>
+        <div class="col-sm-12">
+          <input type="text" class="form-control" id="inputDescription" name="description" value="{{#if passage}}{{passage.description}}{{/if}}"></input>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputCover">目录图片</label>
+        <div class="col-sm-12">
+          <input type="file" class="form-control" accept = "image/*" id="inputCover" name="cover">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputContext">正文</label>
+        <div class="col-sm-12">
+          <input class="form-control" type="hidden" id="inputContext" name="context"></input>
+          <div class="summernote">{{#if passage}}{{{passage.context}}}{{/if}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputDir">目录</label>
+        <div class="col-sm-12">
+          <select class="form-control" id="inputDir" name="dir">
+            <option value="" ></option>
+            <option value="overview" {{#if dir.overview}}selected="true"{{/if}}>理念</option>  
+            <option value="faculty" {{#if dir.faculty}}selected="true"{{/if}}>教师</option>        
+            <option value="diy" {{#if dir.diy}}selected="true"{{/if}}>DIY</option>
+            <option value="activities" {{#if dir.activities}}selected="true"{{/if}}>费米活动</option>
+            <option value="notes" {{#if dir.notes}}selected="true"{{/if}}>费米手记</option>
+            <option value="notes" {{#if dir.QA}}selected="true"{{/if}}>常见问题Q&A</option>
+            <option value="news" {{#if dir.news}}selected="true"{{/if}}>其他新闻</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAlias">别名</label>
+        <div class="col-sm-12">
+          <input type="text" class="form-control" id="inputAlias" name="alias" value="{{#if passage}}{{passage.alias}}{{/if}}"></input>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          {{#if id}}
+          <input name="_method" type="hidden" value="put">
+          {{/if}}
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{#section 'jquery'}}
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/vendor/summernote/summernote.css" rel="stylesheet">
+<script src="/vendor/summernote/summernote.js"></script>
+<script src="/vendor/summernote/summernote-ext-video.js"></script>
+<script>
+$(document).ready(function () {
+  $('.summernote').summernote({
+    height: 600,
+    toolbar: [
+    ['style', ['style']],
+    ['font', ['bold', 'italic', 'underline', 'clear']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture', 'video', 'hr']],
+    ['view', ['codeview']],
+    ['help', ['help']]
+    ]
+  });
+
+  $('form').submit(function (event) {
+    var sHTML = $('.summernote').code();
+    $('#inputContext').val(sHTML);
+    $('input[name="files"]').prop('disabled', true);
+  });
+});
+</script>
+{{/section}}

@@ -1,0 +1,120 @@
+{{> subnav_courses}}
+
+<div class='row'>
+  <div class='col-md-12'>
+    <div class="context-content">
+      <div class="inner-content">
+        <div>
+          <h3>费米物理</h3>
+        </div>
+        <div>
+          <br />
+          <div>
+            <h4>解开神话的面纱 2015年寒假</h4>
+            
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#outline1" aria-controls="outline1" role="tab" data-toggle="tab">大纲</a></li>
+              <li role="presentation"><a href="#list1" aria-controls="list1" role="tab" data-toggle="tab">报名</a></li>
+            </ul>
+            
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="outline1">
+                <table class="table table-striped">
+                  <tr><td>似是而非的秘密</td><td>物理实验的观测和记录，针筒实验，浮针实验，落体实验</td></tr>
+                  <tr><td>科学家的第六感</td><td>物理实验的基本操作规范，天平的记录原理和测量</td></tr>
+                  <tr><td>鲜榨果汁的尊贵</td><td>物体的质量，体积的测量，密度的比较</td></tr>
+                  <tr><td>不要欺负Tom猫</td><td>声音的发出、传播和接收，声音三要素的实验研究</td></tr>
+                  <tr><td>回旋镖星座的冷酷</td><td>温标的比较，冰水混合物和沸水温度测量，升温曲线</td></tr>
+                  <tr><td>说变就变的彩虹</td><td>光线直线传播实验，三棱镜制造彩虹，光的色散</td></tr>
+                  <tr><td>众神之王的魔法</td><td>雷电和摩擦起电现象，铁屑描述磁感线实验，指南针实验</td></tr>
+                </table>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="list1">
+                <table class="table table-striped">
+                  <tr><td>名称</td><td>教师</td><td>开始时间</td><td></td><td></td></tr>
+                  {{#each phy_2015_winter_items}}
+                  <tr>
+                    <td><a href="/items/{{this.id}}">{{this.name}}</a></td>
+                    <td>{{this.teacher_description}}</td>
+                    <td>{{this.start_date}}</td>
+                    <td>
+                      <form action="/buy" method="post" style="display: inline-block">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <button type="submit" class="btn btn-default">直接购买</button>
+                      </form>
+                    </td>
+                    <td>
+                      <form action="/cart" method="post" style="display: inline-block">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <button type="submit" class="btn btn-default">加入购物车</button>
+                      </form>
+                    </td>
+                  </tr>
+                  {{/each}}
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <br />
+          <h4>迪士尼乐园中的暴走物理 2015年春季</h4>
+
+          <div>
+
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#outline2" aria-controls="outline2" role="tab" data-toggle="tab">大纲</a></li>
+              <li role="presentation"><a href="#list2" aria-controls="list2" role="tab" data-toggle="tab">报名</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="outline2">
+                <table class="table table-striped">
+                  <tr><td>艾波卡特跑道测试</td><td>运动的观测和计算，时间和距离的记录，参照系</td></tr>
+                  <tr><td>大起大伏的心跳</td><td>加速度，过山车模型解读，光电门测量加速运动</td></tr>
+                  <tr><td>打架谁吃亏</td><td>弹簧测力计的使用，质量和重力关系探究</td></tr>
+                  <tr><td>柔软的大沙发</td><td>弹性和塑性形变，减震措施，弹簧测力计的制作</td></tr>
+                  <tr><td>你敢信1+1=0</td><td>力的图示和示意图，二力平衡、力的合成和分解实验</td></tr>
+                  <tr><td>地心任务</td><td>重力及其应用，重力的测量，不倒塌结构实验</td></tr>
+                  <tr><td>拔河比赛谁能赢</td><td>摩擦力，摩擦力的测量和影响因素研究实验</td></tr>
+                  <tr><td>《地质博物馆》实践</td><td>地球额故事和宇宙空间中的物理</td></tr>
+                  <tr><td>牛顿没告诉你的事儿</td><td>惯性定律实验，重物下落的实验模拟</td></tr>
+                  <tr><td>入水前的疫苗针</td><td>固体压强，模型的计算和实验验证</td></tr>
+                  <tr><td>迪欣湖的戏水法则</td><td>液体压强的影响因素，水杯落体实验，液体压强计</td></tr>
+                  <tr><td>马德堡的魅力</td><td>真空环境的构建，大气压力的实验探究</td></tr>
+                  <tr><td>《陶艺馆》实践</td><td>陶艺制备中的受力分析，离心作用</td></tr>
+                  <tr><td>国王的皇冠</td><td>阿基米德实验，浮力的排水法实验</td></tr>
+                  <tr><td>更加轻松的游泳方式</td><td>视重法，浮力的进一步研究，潜水艇原理</td></tr>
+                </table>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="list2">
+                <table class="table table-striped">
+                  <tr><td>名称</td><td>教师</td><td>开始时间</td><td></td><td></td></tr>
+                  {{#each phy_2015_spring_items}}
+                  <tr>
+                    <td><a href="/items/{{this.id}}">{{this.name}}</a></td>
+                    <td>{{this.teacher_description}}</td>
+                    <td>{{this.start_date}}</td>
+                    <td>
+                      <form action="/buy" method="post" style="display: inline-block">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <button type="submit" class="btn btn-default">直接购买</button>
+                      </form>
+                    </td>
+                    <td>
+                      <form action="/cart" method="post" style="display: inline-block">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                        <button type="submit" class="btn btn-default">加入购物车</button>
+                      </form>
+                    </td>
+                  </tr>
+                  {{/each}}
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

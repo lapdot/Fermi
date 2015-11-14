@@ -1,0 +1,30 @@
+<div class='row'>
+  <div class='col-md-4'>
+    <h3><a href='javascript:void(0)' onclick='show()'>全部</a></h3>
+    <h3><a href='javascript:void(0)' onclick='show("overview")'>理念</a></h3>
+    <h3><a href='javascript:void(0)' onclick='show("faculty")'>教师</a></h3>
+    <h3><a href='javascript:void(0)' onclick='show("diy")'>DIY</a></h3>
+    <h3><a href='javascript:void(0)' onclick='show("news")'>新闻</a></h3>
+  </div>
+  <div class='col-md-8' id='passages'>
+  {{#each passages}}
+    <p class='DIR-{{this.dir}}'><a href='/passages/{{this.id}}'>{{this.title}}</a>  <a href='/passages-edit/{{this.id}}'>编辑</a>  <a href='/passages-delete/{{this.id}}'>删除</a></p>
+  {{/each}}
+  </div>
+</div>
+
+{{#section 'jquery'}}
+<script>
+  function show(dir) {
+    $('#passages p').hide();
+    if (dir) {
+      $('#passages p.DIR-' + dir).show();
+    } else {
+      $('#passages p').show();
+    }
+  }
+  $(document).ready(function() {
+    show();
+  });
+</script>
+{{/section}}

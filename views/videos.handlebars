@@ -1,0 +1,22 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <div class="promo-content">
+      <div class="inner-content">
+        <div>
+          <h3>{{video.title}}</h3>
+          {{#if teacher}}
+            <a href="/videos-edit/{{video.id}}">编辑<a>
+          {{/if}}
+        </div>
+        <div>
+          <p>{{video.description}}</p>
+        </div>
+        <div class='row'>
+          <div class='col-md-8 col-md-offset-2'>
+            <iframe src="{{video.contentLink}}" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="498" width="510"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

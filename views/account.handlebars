@@ -1,0 +1,79 @@
+<div class='row'>
+	<div class='col-md-12'>
+        <div>
+            <h3>{{user.realname}}的帐号</h3>
+            {{#if teacher}}
+                <p><a href="/passages">文章列表</a></p>
+                <p><a href="/passages-add">添加文章</a></p>
+                <p><a href="/videos-add">添加视频</a></p>
+            {{/if}}
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#basic" aria-controls="basic" role="tab" data-toggle="tab">个人和家庭资料</a></li>
+                <li role="presentation"><a href="#security" aria-controls="security" role="tab" data-toggle="tab">安全信息</a></li>
+                <li role="presentation"><a href="#bought" aria-controls="bought" role="tab" data-toggle="tab">已购买的课程/活动</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="basic">
+                    <p id="type-gender" data="{{user.gender}}">性别: </p>
+                    <p>学校: {{user.school}}</p>
+                    <p>年级: {{user.grade}}</p>
+                    <p>联系电话: {{user.phone1}}</p>
+                    <p>备用电话: {{user.phone2}}</p>
+                    <p><a href='/account/edit'>修改个人和家庭资料</a></p>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="security">
+                    <div class='row'>
+                        <div class='col-md-2'>
+                            <p>手机号码: </p>
+                        </div>
+                        <div class='col-md-4'>
+                            <p>{{user.phone1}}</p>
+                        </div>
+                        <div class='col-md-6'>
+                            <p><a href='/account/phone/edit'>修改手机号码</a></p>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-2'>
+                            <p>密码: </p>
+                        </div>
+                        <div class='col-md-4'>
+                            <p>********</p>
+                        </div>
+                        <div class='col-md-6'>
+                            <p><a href='/account/password/edit'>修改密码</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="bought">
+                {{#if items}}
+                    <table class="table table-striped">
+                    {{#each items}}
+                    <tr>
+                        <td><a href="/items/{{this.id}}"> {{this.name}}</a></td>
+                        <td>{{this.content}}</td>
+                    </tr>
+                    {{/each}}
+                    </table>
+                {{/if}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{#section 'jquery'}}
+<script>
+  $(document).ready(function() {
+    var p = $('#type-gender');
+    var str = p.text();
+    if (p.attr("data") === "Male")
+        str = str + "男";
+    if (p.attr("data") === "Female")
+        str = str + "女";
+    p.text(str);
+  });
+</script>
+{{/section}}

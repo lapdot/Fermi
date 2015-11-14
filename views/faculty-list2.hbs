@@ -1,0 +1,62 @@
+<div class="out-container white-words overlay" style="opacity:1.0; background-image: url(/images/IMG_7300.JPG); min-height:40em">
+  <div class="container">
+    <!--div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <h5>教师</h5>
+      </div>
+    </div-->
+    <!--div class="row">
+      <div class="col-md-3 col-md-offset-1 border-top border-thick py1">
+        <!--div class="background-white">
+          <h1 class="">创始人 肖艺能</h1>
+        </div>
+      </div>
+      <div class="col-md-5 col-md-offset-2 border-top border-thick py1">
+      </div>
+    </div-->
+    <div class="overlay">
+    </div>
+  </div>
+</div>
+
+<div class="out-container">
+  <div class="container">
+    <div class="row">
+      {{#each passages}}
+        <div class="col-md-12">
+          <div class="promo-content horizontal">
+            <div class="row">
+              <div class="col-md-2 col-md-offset-1">
+                <img src="/passages/{{this.id}}/{{this.coverName}}" alt="教师">
+              </div>
+              <div class="col-md-8">
+                <div class='inner-content'>
+                  <h3>{{this.title}}</h3>
+                  <p>{{this.description}}</p>
+                </div>
+              </div>
+              <a href="/faculty/{{this.alias}}" class="cta-overlay">{{this.title}}</a>
+            </div>
+          </div>
+        </div>
+      <!--div class='col-md-3'>
+        <div class="promo-content">
+          <img src="/passages/{{this.id}}/{{this.coverName}}" alt="faculty">
+          <div class="inner-content">
+            <div>
+              <h5>教师</h5>
+              <h3>{{this.title}}</h3>
+            </div>
+            <div>
+              <p>{{this.description}}</p>
+            </div>
+          </div>
+          <a href="/faculty/{{this.alias}}" class="cta-overlay">{{this.title}}</a>
+        </div>
+      </div>
+      <div class='col-md-1'>
+      </div-->
+      {{/each}}
+    </div>
+  </div>
+</div>

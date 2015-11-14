@@ -1,0 +1,55 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <p></p>
+    {{#if message}}
+      <p> {{message}} </p>
+    {{/if}}
+      <form action="/videos{{#if video}}-edit/{{video.id}}{{/if}}" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+          <label for="inputTitle">标题</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" id="inputTitle" name="title" value="{{#if video}}{{video.title}}{{/if}}"></input>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputDescription">描述</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" id="inputDescription" name="description" value="{{#if video}}{{video.description}}{{/if}}"></input>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputCover">目录图片</label>
+          <div class="col-sm-12">
+            <input type="file" class="form-control" accept = "image/*" id="inputCover" name="cover">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputContentLink">视频链接</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" id="inputContentLink" name="contentLink" value="{{#if video}}{{video.contentLink}}{{/if}}"></input>
+          </div>
+        </div>
+        <div class="form-group">
+          <div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>
+      </form>
+  </div>
+</div>
+
+{{#section 'jquery'}}
+  <script>
+    $(document).ready(function () {
+      $('form').submit(function (event) {
+        var url = $('#inputContentLink').val();
+        var youkuRegExp = /\/\/v\.youku\.com\/v_show\/id_(\w+)=*\.html/;
+        var youkuMatch = url.match(youkuRegExp);
+        if (youkuMatch && youkuMatch[1].length) {
+          url = '//player.youku.com/embed/' + youkuMatch[1];
+        }
+        $('#inputContentLink').val(url);
+      });
+    });
+  </script>
+{{/section}}

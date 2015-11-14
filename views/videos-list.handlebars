@@ -1,0 +1,18 @@
+<div class='row'>
+{{#each videos}}
+  <div class='col-md-4'>
+    <div class="promo-content">
+      <img src="{{#if this.coverName}}/videos/{{this.id}}/{{this.coverName}}{{/if}}" alt="">
+      <div class="inner-content">
+        <div>
+          <h3>{{this.title}}</h3>
+        </div>
+        <div>
+          <p>{{this.description}}</p>
+        </div>
+      </div>
+      <a href="/videos/{{this.id}}" class="cta-overlay"></a>
+    </div>
+  </div>
+{{/each}}
+</div>
