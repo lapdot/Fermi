@@ -12,7 +12,6 @@ var formidable = require('formidable');
 var dbapi = require('./libs/dbapi');
 var helper = require('./libs/helperapi');
 var u = require('./libs/utility');
-var P = require('./libs/promise.js');
 var fetch = require('./libs/fetch');
 var log4js = require('log4js');
 var bcrypt = require('bcrypt');
