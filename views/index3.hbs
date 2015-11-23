@@ -1,0 +1,147 @@
+<div class="inner-navigation" style="position: absolute; top: 0; left: 0; right: 0; z-index: 100">
+    <nav class="top-nav">
+        <div class="container">
+            <a class="navbar-left navbar-link" href="/"><img src="/images/logo3.jpg" alt="Fermi Logo" style="height:160px; width:160px"></a>
+            {{#if account}}
+            <ul class="nav navbar-nav navbar-right">
+                <li><p class="navbar-text">你好,&nbsp&nbsp{{account.realname}}</p></li>
+                <!--li><a href="/carts">购物车</a></li-->
+                <li><a href="/account">我的帐号</a></li>
+                <li><a href="/logout">退出</a></li>
+            </ul>
+            {{else}}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/signup">注册</a></li>
+                <li><a href="/login">登录</a></li>
+            </ul>
+            {{/if}}
+            <a class="btn btn-primary navbar-btn navbar-right" href="/apply" style="clear: right">
+                <h4>如何报名</h4>
+            </a>
+        </div>
+    </nav>
+    <nav class="school-subnav hidden-xs">
+        <div class="container">
+            <ul class="nav nav-tabs nav-justified">
+                <li><a href="/">主 页</a></li>
+                <li><a href="/courses">课 程</a></li>
+                <li><a href="/activities">活 动</a></li>
+                <li><a href="/faculty">教 师</a></li>
+                <li><a href="/students">学 生</a></li>
+                <li><a href="/articles">文 章</a></li>
+                <li><a href="/videos">视 频</a></li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="mobile-nav navbar navbar-default visible-xs-block">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">费米科学</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">主页</a></li>
+                    <li><a href="/courses">课程</a></li>
+                    <li><a href="/activities">活动</a></li>
+                    <li><a href="/faculty">教师</a></li>
+                    <li><a href="/students">学生</a></li>
+                    <li><a href="/articles">文章</a></li>
+                    <li><a href="/videos">视频</a></li>
+                    <li><a href="/news/second">报名</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>  
+</div>
+
+<div style="">
+    <div id="pagepiling" style="">
+        <div class="section img-background" id="section1" style="background-image:url(/images/IMG_3995_0.JPG)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="px2 py2">
+                            <div class="py1 mb18">
+                                <h1>费米科学</h1>
+                                <h2>培养有温度的科学人</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="px2 py2">
+                            <div class="py1">
+                                <h3>费米科学计划是一个由全北大清华跨学科精英团队发起的中小学生创新创客教育项目，为中国的00后孩子开发面向未来的创新创客和科学教育体系，构建由学生、家长和教师共同参与的教育实践共同体，培养有创新能力、博雅精神、国际视野、人文温度的科学中国人。</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section img-background" id="section2" style="background-image:url(/images/IMG_3453.JPG)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="px2 py2">
+                            <div class="py1 mb18">
+                                <h1>玩实验  当创客</h1>
+                        <h2>解放孩子的创造力</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="px2 py2">
+                            <div class="py1">
+                                <h3>费米实验室通过以任务为目标的创客教育和系统化的科学实验内容，教6-12岁的孩子们学习生活中好玩的数理化、动手玩实验、DIY当创客；让孩子们在充满科技感的费米实验室中动手完成物理、化学、机械工程、电路设计、机器人搭建与控制、3D打印、图形化编程等实验。</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section img-background" id="section3" style="background-image:url(/images/IMG_5074_0.JPG)"> 
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="px2 py2">
+                            <div class="py1 mb18">
+                                <h1>遵守契约  合作分享</h1>
+                                <h2>构建教育实践共同体</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="px2 py2">
+                            <div class="py1">
+                                <h3>费米远不只是一个传播科学的课堂，而从萌芽之初就秉持构建“教育实践共同体”的核心理念。我们希望，孩子们在费米做实验、当创客的实践中，潜移默化地形成契约意识，形成为他人着想的观念，深刻地感受到合作分享对于出色地完成实验任务、提升成就感和道德感的成长意义。</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/vendor/pagepiling/jquery.pagepiling.css"></link>
+{{/section}}
+
+{{#section 'jquery'}}
+<script type="text/javascript" src="/vendor/pagepiling/jquery.pagepiling.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#pagepiling').pagepiling({
+        navigation: {
+//            verticalCentered: false,
+position: 'right',
+//            tooltips: ['Page1', 'Page2', 'Page3']
+}
+});
+});
+</script>
+{{/section}}

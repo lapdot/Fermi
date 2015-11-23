@@ -371,7 +371,7 @@ Physics（物理）一词源于Natural（自然），是人类对世界的感知
     }
   );
 
-  app.get('/diy',
+  app.get('/students',
     function (req, res) {
       res.render('diy-list.hbs', {account: req.user});
     }
@@ -407,7 +407,7 @@ Physics（物理）一词源于Natural（自然），是人类对世界的感知
     }
   );*/
 
-  app.get('/news',
+  app.get('/articles',
     function (req, res, next) {
       async.waterfall([
         dbapi2.findAllCreate({
@@ -432,7 +432,7 @@ Physics（物理）一词源于Natural（自然），是人类对世界的感知
     }
   );
 
-  app.get('/activities',
+  app.get('/articles-activities',
     function (req, res, next) {
       async.waterfall([
         dbapi2.findAllCreate({
@@ -458,7 +458,7 @@ Physics（物理）一词源于Natural（自然），是人类对世界的感知
   );
 
 
-  app.get('/notes',
+  app.get('/articles-notes',
     function (req, res, next) {
       async.waterfall([
         dbapi2.findAllCreate({
@@ -483,7 +483,7 @@ Physics（物理）一词源于Natural（自然），是人类对世界的感知
     }
   );
 
-  app.get('/QA',
+  app.get('/articles-QA',
     function (req, res, next) {
       async.waterfall([
         dbapi2.findAllCreate({

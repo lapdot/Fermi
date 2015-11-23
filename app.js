@@ -194,9 +194,17 @@ app.get('/', function (req, res) {
   res.render('index2.hbs', {account: req.user} );
 });
 
+app.get('/newindex', function (req, res) {
+  res.render('index3.hbs', {account: req.user} );
+});
+
 app.get('/courses', function (req, res) {
   res.render('courses.hbs', {account: req.user} );
-})
+});
+
+app.get('/activities', function (req, res) {
+  res.render('activities.hbs', {account: req.user} );
+});
 
 require('./routes/static')(app);
 
